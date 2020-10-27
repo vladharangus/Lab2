@@ -1,6 +1,9 @@
 number a = -10;
-number b = 5;
-string c = "ana";
+number bac = 5;
+number x;
+print(1);
+read  (a);
+string c = "ana are mere";
 {
-print(a + b);
+print(a + bac);
 }
