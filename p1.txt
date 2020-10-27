@@ -1,0 +1,6 @@
+number a = -10;
+number b = 5;
+string c = "ana";
+{
+print(a + b);
+}
