@@ -1,9 +1,13 @@
-number a = -10;
-number bac = 5;
-number x;
-print(1);
-read  (a);
-string c = "ana are mere";
+number a ;
+number b ;
+number c ;
 {
-print(a + bac);
+read ( a ) ;
+read ( b ) ;
+read ( c ) ;
+number max ;
+max = a ;
+if ( max < b ) then
+max = b ;
+if ( max < c ) then max = c ; print ( max ) ;
 }

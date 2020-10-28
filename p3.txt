@@ -1,0 +1,13 @@
+number n ;
+number a ;
+number sum ;
+{
+read ( n ) ;
+sum = 0 ;
+for ( number i = 1 ; i <= n ; i = i + 1 ) execute
+{
+read ( a ) ;
+sum = sum + a ;
+}
+print ( sum ) ;
+}
