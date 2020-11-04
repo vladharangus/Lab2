@@ -1,0 +1,8 @@
+p q r
+a b
+p
+r p
+p a q p
+q a q
+q b r
+p b r
