@@ -12,11 +12,10 @@ public class Main {
         SymbolTable symbolTable = new SymbolTable();
         Scanner scanner = new Scanner("p1.txt",symbolTable);
         scanner.scanProgram();
-        Pair[] pif = scanner.getPif();
+        ArrayList<Pair<String, Integer>> pif = scanner.getPif();
         System.out.println("PIF:");
-        for (int i = 0; i < pif.length; i++)
-            if(!(pif[i] == null))
-                System.out.println("Token: " + pif[i].getL() + " Position: " + i);
+        for (Pair p: pif)
+            System.out.println(p.getL() + " " + p.getR());
         SymbolTable finalST = scanner.getSymbolTable();
         System.out.println("Symbol Table:");
         finalST.inorder();
