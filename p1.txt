@@ -2,8 +2,7 @@ number a ;
 number b ;
 number c ;
 {
-read ( a ) ;
-read ( b ) ;
+read (b);
 read ( c ) ;
 number max ;
 max = a ;
