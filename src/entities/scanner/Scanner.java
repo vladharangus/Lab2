@@ -1,5 +1,6 @@
 package entities.scanner;
 
+import entities.fa.FA;
 import entities.node.Node;
 import entities.symbolTable.SymbolTable;
 
@@ -17,6 +18,8 @@ public class Scanner {
     private final String program;
     private final SymbolTable symbolTable;
     private final ArrayList<Pair<String, Integer>> pif = new ArrayList<Pair<String, Integer>>();
+    private final FA faIntegers = new FA("FAIntegers.txt");
+    private final FA faStrings = new FA("FA.txt");
 
     public SymbolTable getSymbolTable() {
         return symbolTable;
@@ -71,12 +74,13 @@ public class Scanner {
                             pif.add(new Pair<>(token, -1));
                     }
                     else {
-                        if (token.matches("^[a-z][a-zA-Z0-9]*") || token.matches("[+-]?[1-9][0-9]*") || token.matches("0") ||
+
+                        if (faStrings.isAccepted(token) || faIntegers.isAccepted(token) ||
                                 token.matches("\"[0-9A-Za-z_]+\"")) {
 
-                            if (token.matches("^[a-z][a-zA-Z0-9]*"))
+                            if (faStrings.isAccepted(token))
                                 genPIF(token,"Identifier");
-                            if(token.matches("[+-]?[1-9][0-9]*") || token.matches("0"))
+                            if(faIntegers.isAccepted(token))
                                 genPIF(token, "Number_const");
                             if (token.matches("\"[0-9A-Za-z_]+\""))
                                 genPIF(token, "String_const");

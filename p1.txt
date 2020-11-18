@@ -1,6 +1,6 @@
-number a ;
-number b ;
-number c ;
+number a = 10 ;
+number b = 0 ;
+number c = -50 ;
 {
 read ( b ) ;
 read ( c ) ;
