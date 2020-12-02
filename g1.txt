@@ -1,6 +1,6 @@
-S;C
-a;b
+S;X;Y
+a;b;c;#
 S
-S;int b;aCSb
-C;S;bSb
-CS;b
+S;X Y a
+X;a;Y b
+Y;c;#

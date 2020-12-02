@@ -5,6 +5,7 @@ import entities.fa.TransitionFunction;
 import entities.grammar.Grammar;
 import entities.grammar.production;
 import entities.node.Node;
+import entities.parser.Parser;
 import entities.scanner.Pair;
 import entities.scanner.Scanner;
 import entities.symbolTable.SymbolTable;
@@ -24,20 +25,9 @@ public class Main {
         System.out.println("Symbol Table:");
         finalST.inorder();*/
         Grammar gr = new Grammar("g1.txt");
-        ArrayList<production> productions = gr.getProductions();
-        for (production p: productions)
-        {
-            System.out.println(" ");
-            System.out.println(p.getFirst());
-            for(String s: p.getSecond())
-                System.out.println(s);
-        }
-        System.out.println("Nonterminals");
-        ArrayList<String> symbols = gr.getN();
-        for(String s: symbols)
+        Parser parser = new Parser(gr);
+        ArrayList<String> firsts = parser.getFollows("Y");
+        for(String s: firsts)
             System.out.println(s);
-
-
-
     }
 }

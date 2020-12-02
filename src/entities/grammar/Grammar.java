@@ -54,6 +54,32 @@ public class Grammar {
         return startSymbol;
     }
 
+    public production findProduction(String s) {
+        for (production p: productions)
+            if (p.getFirst().equals(s))
+                return p;
+        return null;
+    }
+    public ArrayList<production> productionContaining(String s) {
+        ArrayList<production> result = new ArrayList<>();
+        for (production p: productions)
+            for(String st: p.getSecond())
+            {
+                int ok = 0;
+                String[] tokens = st.split(" ");
+                for(String t: tokens)
+                    if(t.equals(s)) {
+                        ok = 1;
+                        result.add(p);
+                        break;
+                    }
+                if(ok == 1)
+                    break;
+
+            }
+        return result;
+    }
+
     public ArrayList<String> getN() {
         return N;
     }
