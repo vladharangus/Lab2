@@ -131,9 +131,12 @@ public class Parser {
         production p = grammar.findProduction(n);
         for (String pr: p.getSecond()) {
             String[] tokens = pr.split(" ");
+            int index = 0;
             for (String t: tokens) {
+                index++;
                 if(grammar.getTerminal().contains(t)){
-                    add(n,t);
+                    if(index <= 1)
+                        add(n,t);
                     ArrayList<String> elem = new ArrayList<>();
                     elem.add(t);
                     temp.add(elem);
@@ -143,12 +146,13 @@ public class Parser {
                     ArrayList<String> setT = getF(t).getSet();
                     temp.add(setT);
                 }
+
             }
         }
-
         ArrayList<String> result = concat(temp);
         for (String s: result)
             add(n,s);
+
     }
 
     private ArrayList<String> concat(ArrayList<ArrayList<String>> temp) {

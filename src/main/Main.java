@@ -26,7 +26,7 @@ public class Main {
         finalST.inorder();*/
         Grammar gr = new Grammar("g1.txt");
         Parser parser = new Parser(gr);
-        ArrayList<String> firsts = parser.getFollows("Y");
+        ArrayList<String> firsts = parser.getFirsts("X");
         for(String s: firsts)
             System.out.println(s);
     }
