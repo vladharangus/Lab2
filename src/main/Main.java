@@ -5,12 +5,15 @@ import entities.fa.TransitionFunction;
 import entities.grammar.Grammar;
 import entities.grammar.production;
 import entities.node.Node;
+import entities.parser.ParseTable;
 import entities.parser.Parser;
 import entities.scanner.Pair;
 import entities.scanner.Scanner;
 import entities.symbolTable.SymbolTable;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -25,9 +28,14 @@ public class Main {
         System.out.println("Symbol Table:");
         finalST.inorder();*/
         Grammar gr = new Grammar("g1.txt");
+
         Parser parser = new Parser(gr);
-        ArrayList<String> firsts = parser.getFirsts("X");
-        for(String s: firsts)
-            System.out.println(s);
+        ParseTable parseTable = parser.getParseTable();
+        System.out.println(parseTable);
+        ArrayList<String> w = new ArrayList<>();
+        w.add("a");
+        w.add("+");
+        System.out.println(parser.parse(w));
+
     }
 }
